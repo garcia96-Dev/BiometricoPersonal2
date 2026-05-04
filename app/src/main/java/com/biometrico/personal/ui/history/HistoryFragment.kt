@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.biometrico.personal.data.database.BiometricoDatabase
 import com.biometrico.personal.data.model.RegistroAsistencia
 import com.biometrico.personal.data.repository.BiometricoRepository
+import com.biometrico.personal.data.model.getHorarioDia
 import com.biometrico.personal.data.repository.ResumenMes
 import com.biometrico.personal.databinding.FragmentHistoryBinding
 import com.biometrico.personal.ui.adapters.RegistroAdapter
@@ -204,14 +205,18 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
                 val fmt = DateTimeFormatter.ofPattern("HH:mm")
                 val entrada = LocalTime.parse(horaEntrada, fmt)
                 val salida = LocalTime.parse(horaSalida, fmt)
+
+                // Minutos totales entre entrada y salida, restando almuerzo
                 var minutos = Duration.between(entrada, salida).toMinutes().toInt()
                 minutos -= config.duracionAlmuerzo
                 if (minutos < 0) minutos = 0
                 val horasTrabajadas = minutos / 60f
-                val horasJornada = if (config.usarJornadaPersonalizada)
-                    config.horasSemanalesPersonalizadas / 5f
-                else config.jornadaLey.toFloat() / 5f
-                val horasExtra = maxOf(0f, horasTrabajadas - horasJornada)
+
+                // Horas esperadas para ese día específico de la semana
+                val fechaLocal = java.time.LocalDate.parse(fecha)
+                val diaSemana = fechaLocal.dayOfWeek.value // 1=Lunes, 7=Domingo
+                val horarioDia = config.getHorarioDia(diaSemana)
+                val horasExtra = maxOf(0f, horasTrabajadas - horarioDia.horasEsperadas)
 
                 val registro = RegistroAsistencia(
                     fecha = fecha,
