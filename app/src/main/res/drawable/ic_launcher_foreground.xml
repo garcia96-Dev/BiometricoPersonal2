@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Fondo degradado suave -->
+    <path
+        android:fillColor="#1A73E8"
+        android:pathData="M0,0 L108,0 L108,108 L0,108 Z"/>
+
+    <!-- Círculo exterior huella -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2.5"
+        android:fillColor="#00000000"
+        android:pathData="M54,20 C73.88,20 90,36.12 90,56 C90,75.88 73.88,92 54,92 C34.12,92 18,75.88 18,56 C18,36.12 34.12,20 54,20Z"/>
+
+    <!-- Líneas de huella dactilar - arcos concéntricos -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:strokeLineCap="round"
+        android:pathData="M38,56 C38,47.16 45.16,40 54,40 C62.84,40 70,47.16 70,56"/>
+
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:strokeLineCap="round"
+        android:pathData="M32,56 C32,43.85 41.85,34 54,34 C66.15,34 76,43.85 76,56 C76,62 73.5,67.5 69,71"/>
+
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:strokeLineCap="round"
+        android:pathData="M44,56 C44,50.48 48.48,46 54,46 C59.52,46 64,50.48 64,56 C64,59 62.8,61.7 60.8,63.7"/>
+
+    <!-- Punto central -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,53 C55.66,53 57,54.34 57,56 C57,57.66 55.66,59 54,59 C52.34,59 51,57.66 51,56 C51,54.34 52.34,53 54,53Z"/>
+
+    <!-- Línea vertical inferior -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:strokeLineCap="round"
+        android:pathData="M54,59 L54,72"/>
+
+</vector>
