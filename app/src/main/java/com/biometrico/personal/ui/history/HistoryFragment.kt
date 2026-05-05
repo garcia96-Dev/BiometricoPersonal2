@@ -104,7 +104,8 @@ class HistoryFragment : Fragment() {
         }
         try {
             val archivo = File(requireContext().cacheDir, "asistencia_biometrico.csv")
-            val writer = FileWriter(archivo)
+            val writer = FileWriter(archivo, Charsets.UTF_8)
+            writer.append("\uFEFF") // BOM para UTF-8 - fix tildes en Excel/Sheets
             writer.append("Fecha,Dia,Hora Entrada,Hora Salida,Horas Trabajadas,Horas Extra,Observaciones\n")
             val formatter = DateTimeFormatter.ofPattern("EEEE", Locale("es", "CO"))
             registros.forEach { r ->
