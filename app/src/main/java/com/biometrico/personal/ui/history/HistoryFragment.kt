@@ -97,24 +97,36 @@ class HistoryFragment : Fragment() {
 
     // === EXPORTAR CSV ===
     private fun exportarCSV() {
-        val registros = viewModel.registros.value ?: emptyList()
-        if (registros.isEmpty()) {
-            Toast.makeText(context, "No hay registros para exportar", Toast.LENGTH_SHORT).show()
-            return
+    val registros = viewModel.registros.value ?: emptyList()
+    if (registros.isEmpty()) {
+        Toast.makeText(context, "No hay registros para exportar", Toast.LENGTH_SHORT).show()
+        return
+    }
+    try {
+        val archivo = File(requireContext().cacheDir, "asistencia_biometrico.csv")
+        // Usamos OutputStreamWriter para asegurar la codificación correcta
+        val writer = archivo.outputStream().bufferedWriter(Charsets.UTF_8)
+        
+        writer.append("\uFEFF") // BOM para que Excel/Sheets detecte UTF-8
+        writer.append("Fecha,Dia,Hora Entrada,Hora Salida,Horas Trabajadas,Horas Extra,Observaciones\n")
+        
+        val formatterDia = DateTimeFormatter.ofPattern("EEEE", Locale("es", "CO"))
+        
+        registros.forEach { r ->
+            val fecha = LocalDate.parse(r.fecha)
+            val dia = fecha.format(formatterDia).replaceFirstChar { it.uppercase() }
+            
+            // Convertimos las horas decimales (ej: 9.7) a formato HH:mm para que se vea bien en la hoja
+            val horas = r.horasTrabajadas.toInt()
+            val minutos = ((r.horasTrabajadas - horas) * 60).toInt()
+            val tiempoFormateado = "%02d:%02d".format(horas, minutos)
+
+            writer.append("${r.fecha},$dia,${r.horaEntrada ?: ""},${r.horaSalida ?: ""},$tiempoFormateado,${"%.2f".format(r.horasExtra)},${r.observaciones}\n")
         }
-        try {
-            val archivo = File(requireContext().cacheDir, "asistencia_biometrico.csv")
-            val writer = FileWriter(archivo, Charsets.UTF_8)
-            writer.append("\uFEFF") // BOM para UTF-8 - fix tildes en Excel/Sheets
-            writer.append("Fecha,Dia,Hora Entrada,Hora Salida,Horas Trabajadas,Horas Extra,Observaciones\n")
-            val formatter = DateTimeFormatter.ofPattern("EEEE", Locale("es", "CO"))
-            registros.forEach { r ->
-                val fecha = LocalDate.parse(r.fecha)
-                val dia = fecha.format(formatter).replaceFirstChar { it.uppercase() }
-                writer.append("${r.fecha},$dia,${r.horaEntrada ?: ""},${r.horaSalida ?: ""},${"%.2f".format(r.horasTrabajadas)},${"%.2f".format(r.horasExtra)},${r.observaciones}\n")
-            }
-            writer.flush()
-            writer.close()
+        writer.flush()
+        writer.close()
+
+        // ... resto del código para compartir el archivo (FileProvider e Intent)
 
             val uri = FileProvider.getUriForFile(
                 requireContext(),
