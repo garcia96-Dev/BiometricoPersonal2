@@ -88,43 +88,23 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- HORARIO POR DÍA -->
-        <TextView style="@style/SectionHeader" android:text="📅 Horario por día"/>
-
-        <!-- MACRO para un día: se repite 7 veces con IDs únicos -->
+        <!-- HORARIO POR DÍA — solo horas esperadas -->
+        <TextView style="@style/SectionHeader" android:text="📅 Horas por día"/>
 
         <!-- LUNES -->
         <com.google.android.material.card.MaterialCardView style="@style/SettingsCard">
             <LinearLayout style="@style/SettingsCardContent">
-                <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchLunes"
-                    android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:text="🗓 Lunes" android:checked="true" android:textStyle="bold"/>
-                <LinearLayout android:id="@+id/layoutLunesHorario" android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="8dp">
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="6dp">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Entrada"/>
-                        <TextView android:id="@+id/tvLunesEntrada" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="08:00" android:textStyle="bold" android:fontFamily="monospace" android:layout_marginEnd="8dp"/>
-                        <com.google.android.material.button.MaterialButton android:id="@+id/btnLunesEntrada"
-                            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cambiar"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="6dp">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Salida"/>
-                        <TextView android:id="@+id/tvLunesSalida" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="17:00" android:textStyle="bold" android:fontFamily="monospace" android:layout_marginEnd="8dp"/>
-                        <com.google.android.material.button.MaterialButton android:id="@+id/btnLunesSalida"
-                            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cambiar"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-                    </LinearLayout>
-                    <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:hint="Horas a trabajar este día"
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchLunes"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Lunes" android:checked="true" android:textStyle="bold"/>
+                    <com.google.android.material.textfield.TextInputLayout android:layout_width="100dp"
+                        android:layout_height="wrap_content" android:hint="Horas"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                         <com.google.android.material.textfield.TextInputEditText android:id="@+id/etLunesHoras"
                             android:layout_width="match_parent" android:layout_height="wrap_content"
-                            android:inputType="numberDecimal" android:text="8"/>
+                            android:inputType="numberDecimal" android:text="9"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -133,35 +113,17 @@
         <!-- MARTES -->
         <com.google.android.material.card.MaterialCardView style="@style/SettingsCard">
             <LinearLayout style="@style/SettingsCardContent">
-                <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchMartes"
-                    android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:text="🗓 Martes" android:checked="true" android:textStyle="bold"/>
-                <LinearLayout android:id="@+id/layoutMartesHorario" android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="8dp">
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="6dp">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Entrada"/>
-                        <TextView android:id="@+id/tvMartesEntrada" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="08:00" android:textStyle="bold" android:fontFamily="monospace" android:layout_marginEnd="8dp"/>
-                        <com.google.android.material.button.MaterialButton android:id="@+id/btnMartesEntrada"
-                            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cambiar"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="6dp">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Salida"/>
-                        <TextView android:id="@+id/tvMartesSalida" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="17:00" android:textStyle="bold" android:fontFamily="monospace" android:layout_marginEnd="8dp"/>
-                        <com.google.android.material.button.MaterialButton android:id="@+id/btnMartesSalida"
-                            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cambiar"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-                    </LinearLayout>
-                    <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:hint="Horas a trabajar este día"
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchMartes"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Martes" android:checked="true" android:textStyle="bold"/>
+                    <com.google.android.material.textfield.TextInputLayout android:layout_width="100dp"
+                        android:layout_height="wrap_content" android:hint="Horas"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                         <com.google.android.material.textfield.TextInputEditText android:id="@+id/etMartesHoras"
                             android:layout_width="match_parent" android:layout_height="wrap_content"
-                            android:inputType="numberDecimal" android:text="8"/>
+                            android:inputType="numberDecimal" android:text="9"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -170,35 +132,17 @@
         <!-- MIÉRCOLES -->
         <com.google.android.material.card.MaterialCardView style="@style/SettingsCard">
             <LinearLayout style="@style/SettingsCardContent">
-                <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchMiercoles"
-                    android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:text="🗓 Miércoles" android:checked="true" android:textStyle="bold"/>
-                <LinearLayout android:id="@+id/layoutMiercolesHorario" android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="8dp">
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="6dp">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Entrada"/>
-                        <TextView android:id="@+id/tvMiercolesEntrada" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="08:00" android:textStyle="bold" android:fontFamily="monospace" android:layout_marginEnd="8dp"/>
-                        <com.google.android.material.button.MaterialButton android:id="@+id/btnMiercolesEntrada"
-                            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cambiar"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="6dp">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Salida"/>
-                        <TextView android:id="@+id/tvMiercolesSalida" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="17:00" android:textStyle="bold" android:fontFamily="monospace" android:layout_marginEnd="8dp"/>
-                        <com.google.android.material.button.MaterialButton android:id="@+id/btnMiercolesSalida"
-                            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cambiar"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-                    </LinearLayout>
-                    <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:hint="Horas a trabajar este día"
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchMiercoles"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Miércoles" android:checked="true" android:textStyle="bold"/>
+                    <com.google.android.material.textfield.TextInputLayout android:layout_width="100dp"
+                        android:layout_height="wrap_content" android:hint="Horas"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                         <com.google.android.material.textfield.TextInputEditText android:id="@+id/etMiercolesHoras"
                             android:layout_width="match_parent" android:layout_height="wrap_content"
-                            android:inputType="numberDecimal" android:text="8"/>
+                            android:inputType="numberDecimal" android:text="9"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -207,35 +151,17 @@
         <!-- JUEVES -->
         <com.google.android.material.card.MaterialCardView style="@style/SettingsCard">
             <LinearLayout style="@style/SettingsCardContent">
-                <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchJueves"
-                    android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:text="🗓 Jueves" android:checked="true" android:textStyle="bold"/>
-                <LinearLayout android:id="@+id/layoutJuevesHorario" android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="8dp">
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="6dp">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Entrada"/>
-                        <TextView android:id="@+id/tvJuevesEntrada" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="08:00" android:textStyle="bold" android:fontFamily="monospace" android:layout_marginEnd="8dp"/>
-                        <com.google.android.material.button.MaterialButton android:id="@+id/btnJuevesEntrada"
-                            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cambiar"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="6dp">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Salida"/>
-                        <TextView android:id="@+id/tvJuevesSalida" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="17:00" android:textStyle="bold" android:fontFamily="monospace" android:layout_marginEnd="8dp"/>
-                        <com.google.android.material.button.MaterialButton android:id="@+id/btnJuevesSalida"
-                            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cambiar"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-                    </LinearLayout>
-                    <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:hint="Horas a trabajar este día"
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchJueves"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Jueves" android:checked="true" android:textStyle="bold"/>
+                    <com.google.android.material.textfield.TextInputLayout android:layout_width="100dp"
+                        android:layout_height="wrap_content" android:hint="Horas"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                         <com.google.android.material.textfield.TextInputEditText android:id="@+id/etJuevesHoras"
                             android:layout_width="match_parent" android:layout_height="wrap_content"
-                            android:inputType="numberDecimal" android:text="8"/>
+                            android:inputType="numberDecimal" android:text="9"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -244,35 +170,17 @@
         <!-- VIERNES -->
         <com.google.android.material.card.MaterialCardView style="@style/SettingsCard">
             <LinearLayout style="@style/SettingsCardContent">
-                <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchViernes"
-                    android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:text="🗓 Viernes" android:checked="true" android:textStyle="bold"/>
-                <LinearLayout android:id="@+id/layoutViernesHorario" android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="8dp">
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="6dp">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Entrada"/>
-                        <TextView android:id="@+id/tvViernesEntrada" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="08:00" android:textStyle="bold" android:fontFamily="monospace" android:layout_marginEnd="8dp"/>
-                        <com.google.android.material.button.MaterialButton android:id="@+id/btnViernesEntrada"
-                            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cambiar"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="6dp">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Salida"/>
-                        <TextView android:id="@+id/tvViernesSalida" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="17:00" android:textStyle="bold" android:fontFamily="monospace" android:layout_marginEnd="8dp"/>
-                        <com.google.android.material.button.MaterialButton android:id="@+id/btnViernesSalida"
-                            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cambiar"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-                    </LinearLayout>
-                    <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:hint="Horas a trabajar este día"
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchViernes"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Viernes" android:checked="true" android:textStyle="bold"/>
+                    <com.google.android.material.textfield.TextInputLayout android:layout_width="100dp"
+                        android:layout_height="wrap_content" android:hint="Horas"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                         <com.google.android.material.textfield.TextInputEditText android:id="@+id/etViernesHoras"
                             android:layout_width="match_parent" android:layout_height="wrap_content"
-                            android:inputType="numberDecimal" android:text="8"/>
+                            android:inputType="numberDecimal" android:text="9"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -281,32 +189,13 @@
         <!-- SÁBADO -->
         <com.google.android.material.card.MaterialCardView style="@style/SettingsCard">
             <LinearLayout style="@style/SettingsCardContent">
-                <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchSabado"
-                    android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:text="🗓 Sábado" android:checked="false" android:textStyle="bold"/>
-                <LinearLayout android:id="@+id/layoutSabadoHorario" android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="8dp"
-                    android:visibility="gone">
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="6dp">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Entrada"/>
-                        <TextView android:id="@+id/tvSabadoEntrada" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="08:00" android:textStyle="bold" android:fontFamily="monospace" android:layout_marginEnd="8dp"/>
-                        <com.google.android.material.button.MaterialButton android:id="@+id/btnSabadoEntrada"
-                            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cambiar"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="6dp">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Salida"/>
-                        <TextView android:id="@+id/tvSabadoSalida" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="13:00" android:textStyle="bold" android:fontFamily="monospace" android:layout_marginEnd="8dp"/>
-                        <com.google.android.material.button.MaterialButton android:id="@+id/btnSabadoSalida"
-                            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cambiar"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-                    </LinearLayout>
-                    <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:hint="Horas a trabajar este día"
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchSabado"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Sábado" android:checked="false" android:textStyle="bold"/>
+                    <com.google.android.material.textfield.TextInputLayout android:layout_width="100dp"
+                        android:layout_height="wrap_content" android:hint="Horas"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                         <com.google.android.material.textfield.TextInputEditText android:id="@+id/etSabadoHoras"
                             android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -319,32 +208,13 @@
         <!-- DOMINGO -->
         <com.google.android.material.card.MaterialCardView style="@style/SettingsCard">
             <LinearLayout style="@style/SettingsCardContent">
-                <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchDomingo"
-                    android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:text="🗓 Domingo" android:checked="false" android:textStyle="bold"/>
-                <LinearLayout android:id="@+id/layoutDomingoHorario" android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="8dp"
-                    android:visibility="gone">
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="6dp">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Entrada"/>
-                        <TextView android:id="@+id/tvDomingoEntrada" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="08:00" android:textStyle="bold" android:fontFamily="monospace" android:layout_marginEnd="8dp"/>
-                        <com.google.android.material.button.MaterialButton android:id="@+id/btnDomingoEntrada"
-                            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cambiar"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="6dp">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Salida"/>
-                        <TextView android:id="@+id/tvDomingoSalida" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="13:00" android:textStyle="bold" android:fontFamily="monospace" android:layout_marginEnd="8dp"/>
-                        <com.google.android.material.button.MaterialButton android:id="@+id/btnDomingoSalida"
-                            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cambiar"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-                    </LinearLayout>
-                    <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:hint="Horas a trabajar este día"
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchDomingo"
+                        android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Domingo" android:checked="false" android:textStyle="bold"/>
+                    <com.google.android.material.textfield.TextInputLayout android:layout_width="100dp"
+                        android:layout_height="wrap_content" android:hint="Horas"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                         <com.google.android.material.textfield.TextInputEditText android:id="@+id/etDomingoHoras"
                             android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -358,7 +228,8 @@
         <TextView style="@style/SectionHeader" android:text="⏱️ Tolerancias"/>
         <com.google.android.material.card.MaterialCardView style="@style/SettingsCard">
             <LinearLayout style="@style/SettingsCardContent">
-                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Tolerancia llegada tarde"/>
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Tolerancia llegada tarde"/>
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="12dp">
                     <com.google.android.material.slider.Slider android:id="@+id/sliderToleranciaEntrada"
@@ -367,7 +238,8 @@
                     <TextView android:id="@+id/tvToleranciaEntradaValor" android:layout_width="60dp"
                         android:layout_height="wrap_content" android:text="5 min" android:gravity="end"/>
                 </LinearLayout>
-                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Tolerancia salida anticipada"/>
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Tolerancia salida anticipada"/>
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:orientation="horizontal" android:gravity="center_vertical">
                     <com.google.android.material.slider.Slider android:id="@+id/sliderToleranciaSalida"
@@ -385,26 +257,31 @@
             <LinearLayout style="@style/SettingsCardContent">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
-                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Inicio nocturna"/>
-                    <TextView android:id="@+id/tvInicioNocturna" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="19:00" android:textStyle="bold" android:fontFamily="monospace" android:layout_marginEnd="8dp"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="Inicio nocturna"/>
+                    <TextView android:id="@+id/tvInicioNocturna" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="19:00" android:textStyle="bold"
+                        android:fontFamily="monospace" android:layout_marginEnd="8dp"/>
                     <com.google.android.material.button.MaterialButton android:id="@+id/btnPickerInicioNocturna"
                         android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cambiar"
                         style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="12dp">
-                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Fin nocturna"/>
-                    <TextView android:id="@+id/tvFinNocturna" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="06:00" android:textStyle="bold" android:fontFamily="monospace" android:layout_marginEnd="8dp"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="Fin nocturna"/>
+                    <TextView android:id="@+id/tvFinNocturna" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="06:00" android:textStyle="bold"
+                        android:fontFamily="monospace" android:layout_marginEnd="8dp"/>
                     <com.google.android.material.button.MaterialButton android:id="@+id/btnPickerFinNocturna"
                         android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cambiar"
                         style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
                 </LinearLayout>
                 <com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
-                    android:layout_height="wrap_content" app:cardBackgroundColor="#FFF8E1" app:cardCornerRadius="8dp"
-                    android:layout_marginBottom="12dp">
-                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="12dp"
+                    android:layout_height="wrap_content" app:cardBackgroundColor="#FFF8E1"
+                    app:cardCornerRadius="8dp" android:layout_marginBottom="12dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:padding="12dp"
                         android:text="• Nocturno (7pm-6am): +35%\n• Extra diurna: +25%\n• Extra nocturna: +75%\n• Dominical/festivo: +75%"
                         android:textSize="12sp" android:lineSpacingExtra="3dp"/>
                 </com.google.android.material.card.MaterialCardView>
